@@ -1,7 +1,7 @@
 FROM resin/rpi-raspbian:latest  
 ENTRYPOINT ["/bin/sh"]
 
-RUN apt-get -y update
+RUN apt-get update
 
 RUN apt-get -y upgrade
 
