@@ -1,5 +1,9 @@
-FROM arm32v6/alpine:latest  
+FROM resin/rpi-raspbian:latest  
 ENTRYPOINT ["/bin/sh"]
+
+RUN apt-get -y update
+
+RUN apt-get -y upgrade
 
 RUN apt-get -y install ruby-dev
 
