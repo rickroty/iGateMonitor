@@ -1,12 +1,8 @@
 FROM resin/rpi-raspbian:latest  
 ENTRYPOINT ["/bin/sh"]
 
-RUN apt-get clean
+RUN apt-get update && apt-get upgrade -y
 
-RUN apt-get update
-
-RUN apt-get -y upgrade
-
-RUN apt-get -y install ruby-dev
+RUN apt-get install -y ruby-dev
 
 CMD ["/bin/sh"] 
