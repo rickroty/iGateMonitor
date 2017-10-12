@@ -1,6 +1,6 @@
 FROM resin/rpi-raspbian:latest  
 ENTRYPOINT ["/bin/sh"]
 
-RUN apt-get -y install ruby-full
+RUN apt-get -y install ruby-dev
 
 CMD ["/bin/sh"] 
