@@ -1,6 +1,5 @@
 FROM resin/rpi-raspbian:latest  
 ENTRYPOINT []
 
-RUN 
 
 CMD ["/bin/sh"] 
