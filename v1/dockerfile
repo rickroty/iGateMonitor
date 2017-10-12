@@ -1,8 +1,6 @@
 FROM resin/rpi-raspbian:latest  
 ENTRYPOINT ["/bin/sh"]
 
-RUN aptitude -qy install ruby-dev
-
-
+RUN aptitude install ruby-dev
 
 CMD ["/bin/sh"] 
