@@ -1,6 +1,6 @@
 FROM resin/rpi-raspbian:latest  
 ENTRYPOINT []
 
-RUN sudo apt-get update 
+RUN 
 
 CMD ["/bin/sh"] 
