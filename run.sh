@@ -1,1 +1,1 @@
- docker run -it -p"24224:24224" -v ~/:~/ igatemonitor:v1
+ docker run -it -p"24224:24224" -v ~/:/etc/ igatemonitor:v1
