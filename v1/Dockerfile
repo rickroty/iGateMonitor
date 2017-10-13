@@ -6,6 +6,10 @@ RUN apt-get update \
 
 RUN gem install fluentd --no-ri --no-doc
 
+RUN pip install fluent-logger
+
+RUN fluent-gem install fluent-plugin-bigquery
+
 RUN apt-get remove ruby-dev gcc make -y
 
 CMD ["/bin/sh"] 
