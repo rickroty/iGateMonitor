@@ -10,10 +10,6 @@ RUN pip install fluent-logger
 
 RUN fluent-gem install fluent-plugin-bigquery --no-ri --no-doc
 
-RUN mkdir /etc/fluentd
-
-RUN curl https://raw.githubusercontent.com/rickroty/igatemonitor/master/logging/fluentd/fluentd.conf > /etc/logging/fluentd/fluentd.conf
-
 RUN apt-get remove ruby-dev gcc g++ make -y
 
 RUN fluentd -c /etc/fluentd/fluentd.conf -p /fluentd/plugins &
