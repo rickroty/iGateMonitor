@@ -8,7 +8,7 @@ RUN gem install fluentd --no-ri --no-doc
 
 RUN pip install fluent-logger
 
-#RUN fluent-gem install fluent-plugin-bigquery
+RUN fluent-gem install fluent-plugin-bigquery --no-ri --no-doc
 
 RUN apt-get remove ruby-dev gcc g++ make -y
 
