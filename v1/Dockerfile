@@ -2,7 +2,7 @@ FROM hypriot/rpi-ruby:latest
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
-    ruby-dev gcc make python-pip python-setuptools
+    ruby-dev gcc make python-pip python-setuptools apt-utils
 
 RUN gem install fluentd --no-ri --no-doc
 
