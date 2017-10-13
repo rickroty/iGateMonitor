@@ -4,7 +4,7 @@ RUN apt-get update \
     && apt-get install -y --no-install-recommends \
     ruby-dev gcc make python-pip python-setuptools
 
-RUN gem install fluentd -v 0.12.19 --no-ri --no-doc
+RUN gem install fluentd --no-ri --no-doc
 
 RUN pip install fluent-logger
 
