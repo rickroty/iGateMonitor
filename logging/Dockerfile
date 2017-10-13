@@ -12,7 +12,7 @@ RUN fluent-gem install fluent-plugin-bigquery --no-ri --no-doc
 
 RUN mkdir /etc/fluentd
 
-RUN curl http://raw.githubusercontent.com/rickroty/igatemonitor/master/fluentd.conf > /etc/fluentd/fluentd.conf
+RUN curl https://raw.githubusercontent.com/rickroty/igatemonitor/master/logging/fluentd/fluentd.conf > /etc/logging/fluentd/fluentd.conf
 
 RUN apt-get remove ruby-dev gcc g++ make -y
 
