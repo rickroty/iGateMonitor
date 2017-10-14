@@ -14,4 +14,6 @@ RUN apt-get remove ruby-dev gcc g++ make -y
 
 RUN fluentd -c /etc/fluentd/fluentd.conf -p /fluentd/plugins &
 
+ENV SSL_CERT_FILE=/etc/ca/cacert.pem/
+
 CMD ["/bin/sh"] 
