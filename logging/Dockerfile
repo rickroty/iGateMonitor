@@ -40,7 +40,7 @@ ENV PATH /home/ubuntu/ruby/bin:$PATH
 
 RUN gem install fluentd --no-ri --no-doc
 
-RUN pip install fluent-logger
+RUN pip install --user fluent-logger
 RUN fluent-gem install fluent-plugin-bigquery --no-ri --no-doc
 
 # RUN gem install fluent-plugin-webhdfs
