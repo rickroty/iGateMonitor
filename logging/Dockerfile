@@ -1,6 +1,4 @@
 FROM resin/rpi-raspbian:latest
-MAINTAINER TAGOMORI Satoshi <tagomoris@gmail.com>
-LABEL Description="Fluentd docker image" Vendor="Fluent Organization" Version="1.0"
 
 RUN apt-get update -y && apt-get install -y \
               autoconf \
