@@ -35,7 +35,11 @@ RUN git clone https://github.com/tagomoris/xbuild.git /home/ubuntu/.xbuild
 RUN /home/ubuntu/.xbuild/ruby-install 2.2.2 /home/ubuntu/ruby
 
 ENV PATH /home/ubuntu/ruby/bin:$PATH
-RUN gem install fluentd -v 0.12.19
+
+RUN gem install fluentd --no-ri --no-doc
+
+RUN pip install fluent-logger
+RUN fluent-gem install fluent-plugin-bigquery --no-ri --no-doc
 
 # RUN gem install fluent-plugin-webhdfs
 
