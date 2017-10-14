@@ -1,4 +1,4 @@
-nFROM hypriot/rpi-ruby:latest  
+FROM hypriot/rpi-ruby:latest  
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
