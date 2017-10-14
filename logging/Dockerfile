@@ -1,4 +1,4 @@
-FROM hypriot/rpi-ruby:latest  
+nFROM hypriot/rpi-ruby:latest  
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
@@ -14,6 +14,8 @@ RUN fluent-gem install fluent-plugin-bigquery --no-ri --no-doc
 
 RUN apt-get remove ruby-dev gcc g++ make -y
 
-RUN fluentd -c /etc/fluentd/fluentd.conf -p /fluentd/plugins &
+RUN export SSL_CERT_FILE=/usr/local/etc/openssl/cert.pem
+
+RUN fluentd -c /etc/fluentd/fluentd.conf -p /fluentd/plugins
 
 CMD ["/bin/sh"] 
