@@ -2,7 +2,7 @@ nFROM hypriot/rpi-ruby:latest
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
-     apt-utils ruby-dev gcc g++ make python-pip python-setuptools
+     apt-utils ruby-dev gcc g++ make python-pip python-setuptools ca-certificates
      
 ENV SSL_CERT_FILE=/etc/ca/GlobalSignRootCA.pem
 
