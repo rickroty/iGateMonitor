@@ -14,7 +14,9 @@ RUN apt-get update -y && apt-get install -y \
               libreadline6-dev \              
               libssl-dev \
               libyaml-dev \
-              zlib1g-dev \              
+              zlib1g-dev \ 
+              python-pip \
+              python-setuptools \
         && rm -rf /var/lib/apt/lists/*
 
 RUN useradd ubuntu -d /home/ubuntu -m -U
