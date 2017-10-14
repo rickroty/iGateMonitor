@@ -4,7 +4,7 @@ RUN apt-get update \
     && apt-get install -y --no-install-recommends \
      apt-utils ruby-dev gcc g++ make python-pip python-setuptools
      
-ENV SSL_CERT_FILE=/etc/ca/cacert.pem
+ENV SSL_CERT_FILE=/etc/ca/GlobalSignRootCA.pem
 
 RUN gem install fluentd --no-ri --no-doc
 
