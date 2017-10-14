@@ -17,12 +17,12 @@ RUN apt-get remove ruby-dev gcc g++ make -y
 RUN useradd pi -d /home/pi -m -U
 RUN chown -R pi:pi /home/pi
 
-USER pi
-WORKDIR /home/pi
-
 ###RUN export SSL_CERT_FILE=/usr/local/etc/openssl/cert.pem
 
 ###EXPOSE 24224
 
 ### docker run -it -p"24224:24224" -v "/home/pi/projects/igatemonitor/logging/:/etc/" logging:latest
 CMD ["exec fluentd -c /etc/fluentd/fluentd.conf -p /fluentd/plugins"] 
+
+USER pi
+WORKDIR /home/pi
