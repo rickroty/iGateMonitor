@@ -18,5 +18,4 @@ output = input.split("\n\n")
 for l in output:
     print "["+l+"]"
 
-sys.stdout.flush()
 print "done!"
