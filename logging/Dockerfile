@@ -30,6 +30,9 @@ RUN mkdir -p /fluentd/plugins
 
 RUN chown -R ubuntu:ubuntu /fluentd
 
+RUN mkdir -p /host
+RUN chown -R ubuntu:ubuntu /host
+
 USER ubuntu
 WORKDIR /home/ubuntu
 
@@ -45,16 +48,11 @@ RUN fluent-gem install fluent-plugin-bigquery --no-ri --no-doc
 
 # RUN gem install fluent-plugin-webhdfs
 
-#COPY fluent.conf /fluentd/etc/
-ONBUILD COPY /igatewaymonitor/logging/fluentd/fluent.conf /fluentd/etc/
-#ONBUILD COPY plugins /fluentd/plugins/
-
-WORKDIR /home/ubuntu
-
-ENV FLUENTD_OPT=""
-ENV FLUENTD_CONF="fluent.conf"
+#RUN curl https://raw.githubusercontent.com/rickroty/igatemonitor/master/logging/fluentd/fluentd.conf > /fluentd/etc/
+RUN cp /host/logging/fluentd/fluentd.conf /fluentd/etc
 
 EXPOSE 24224
 
-### docker run -p 24224 -v `pwd`/log: -v `pwd`/log:/home/ubuntu/log fluent/fluentd:latest
-CMD exec fluentd -c /fluentd/etc/$FLUENTD_CONF -p /fluentd/plugins $FLUENTD_OPT
+### docker run -p 24224 -v /home/pi/projects/igatemonitor:/host logging:latest
+
+CMD exec fluentd -c /host/logging/fluentd/fluentd.conf
