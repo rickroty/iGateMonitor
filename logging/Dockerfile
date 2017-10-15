@@ -46,8 +46,8 @@ RUN fluent-gem install fluent-plugin-bigquery --no-ri --no-doc
 # RUN gem install fluent-plugin-webhdfs
 
 #COPY fluent.conf /fluentd/etc/
-ONBUILD COPY fluent.conf /fluentd/etc/
-ONBUILD COPY plugins /fluentd/plugins/
+ONBUILD COPY /igatewaymonitor/logging/fluentd/fluent.conf /fluentd/etc/
+#ONBUILD COPY plugins /fluentd/plugins/
 
 WORKDIR /home/ubuntu
 
