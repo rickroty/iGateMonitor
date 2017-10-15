@@ -48,7 +48,7 @@ RUN fluent-gem install fluent-plugin-bigquery --no-ri --no-doc
 
 # RUN gem install fluent-plugin-webhdfs
 
-RUN curl https://raw.githubusercontent.com/rickroty/igatemonitor/master/logging/fluentd/fluentd.conf > /fluentd/etc/
+RUN curl https://raw.githubusercontent.com/rickroty/igatemonitor/master/logging/fluentd/fluentd.conf > /fluentd/etc/fluentd.conf
 #RUN cp /host/logging/fluentd/fluentd.conf /fluentd/etc
 
 EXPOSE 24224
