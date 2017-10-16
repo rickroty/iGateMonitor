@@ -12,11 +12,8 @@ else:
 
 with open(fname) as f:
     content = f.read()
-
-try:
-    c = F.read()
 finally:
-    F.close()
+    f.close()
 
 output = input.split("\n\n")
 
