@@ -1,6 +1,7 @@
 import sys
 import string
 
+fname=''
 if len(sys.argv) > 1:
     fname = sys.argv[1]
 else:
