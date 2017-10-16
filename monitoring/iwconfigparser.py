@@ -1,7 +1,7 @@
 import sys
 import string
 
-if len(sys.argv) &gt; 1:
+if len(sys.argv) > 1:
     fname = sys.argv[1]
 else:
     print(" No filename specified. ")
