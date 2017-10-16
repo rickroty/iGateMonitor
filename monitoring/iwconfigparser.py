@@ -27,7 +27,8 @@ if wlan0.count > 0:
                 signal_strength = reading.split("=")[1].split(" ")[0]
                 #print "signal_strength:" + reading.split("=")[1].split(" ")[0]
             if reading.strip()[:4]=="Link":
-                link_quality = int(reading.split("=")[1].split("/")[0]) / int(reading.split("=")[1].split("/")[1]) 
+                try:  link_quality = int(reading.split("=")[1].split("/")[0])*100 / int(reading.split("=")[1].split("/")[1]) 
+                except ZeroDivisionError: link_quality=0
                 print "link_quality:" + str(link_quality)
             #print reading.strip()    
 
