@@ -22,3 +22,4 @@ for l in output:
     print "["+l+"]"
 
 print "done!"
+quit
