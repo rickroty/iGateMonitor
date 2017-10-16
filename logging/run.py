@@ -14,4 +14,4 @@ envvar="HOSTIP=" + hostip
 import docker
 client = docker.from_env()
 
-client.containers.run("logging:latest", detach=True, "logging:latest",environment=envvar)
+client.containers.run("logging:latest", detach=True, environment=envvar)
