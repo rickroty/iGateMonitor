@@ -20,6 +20,6 @@ for a in adapters:
         wlan0=a.split("  ")
 
 for reading in wlan0:
-    if len(reading.srip())>0:
+    if len(reading.strip())>0:
         print "done!"
 quit
