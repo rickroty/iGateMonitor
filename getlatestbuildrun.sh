@@ -1,5 +1,5 @@
 sh ./logging/getlatestbuildrun.sh
 
-#sh ./alering/getlatestbuildrun.sh
+#sh ./alerting/getlatestbuildrun.sh
 
-#sh ./monitoring/getlatestbuildrun.sh
+sh ./monitoring/getlatestbuildrun.sh
