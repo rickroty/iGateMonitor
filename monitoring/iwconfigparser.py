@@ -23,6 +23,8 @@ for a in adapters:
 if wlan0.count > 0:
     for reading in wlan0:
         if len(reading.translate(None, ' \n\t\r'))>0:
+            signal_strength=0
+            link_quality=0
             if reading.strip()[:6]=="Signal":
                 signal_strength = reading.split("=")[1].split(" ")[0]
                 #print "signal_strength:" + reading.split("=")[1].split(" ")[0]
