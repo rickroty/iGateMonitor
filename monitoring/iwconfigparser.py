@@ -2,7 +2,7 @@ import sys
 import string
 
 fname=''
-content=''
+filecontent=''
 
 if len(sys.argv) > 1:
     fname = sys.argv[1]
@@ -11,9 +11,9 @@ else:
     quit
 
 with open(fname) as f:
-    content = f.read()
+    filecontent = f.read()
 
-output = input.split("\n\n")
+output = filecontent.split("\n\n")
 
 for l in output:
     print "["+l+"]"
