@@ -12,8 +12,6 @@ else:
 
 with open(fname) as f:
     content = f.read()
-finally:
-    f.close()
 
 output = input.split("\n\n")
 
