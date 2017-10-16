@@ -1,17 +1,17 @@
 import sys
 import string
 
-try:
-    input = ""
-    c = sys.stdin.read(1)
-    while True:
-        input += c
-        c = sys.stdin.read(1)
-            
-except EOFError:
-    pass
-except KeyboardInterrupt:
-    pass
+if len(sys.argv) &gt; 1:
+    fname = sys.argv[1]
+else:
+    print(" No filename specified. ")
+    quit
+
+F = open(fname,”r”)
+
+input = ""
+
+c = F.read()
 
 output = input.split("\n\n")
 
