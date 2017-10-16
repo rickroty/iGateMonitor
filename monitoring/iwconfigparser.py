@@ -11,7 +11,10 @@ F = open(fname,”r”)
 
 input = ""
 
-c = F.read()
+try:
+    c = F.read()
+finally:
+    F.close()
 
 output = input.split("\n\n")
 
