@@ -13,10 +13,13 @@ else:
 with open(fname) as f:
     filecontent = f.read()
 
-output = filecontent.split("\n\n")
+adapters = filecontent.split("\n\n")
 
-for l in output:
-    print "["+l+"]"
+for a in adapters:
+    if a.[:5] == "wlan0":
+        wlan0=a.split("  ")
 
+for reading in wlan0:
+    print reading
 print "done!"
 quit
