@@ -24,11 +24,12 @@ if wlan0.count > 0:
     for reading in wlan0:
         if len(reading.translate(None, ' \n\t\r'))>0:
             if reading.strip()[:6]=="Signal":
-                #signal_strength = reading.split("=")[1].split(" ")[0]
-                print "signal_strength:" + reading.split("=")[1].split(" ")[0]
-            #if reading.strip()[:4]=="Link":
-            #    link_quality = int(reading.split("=").split("/")[0]) / int(reading.split("=").split("/")[1]) 
-            print reading.strip()    
+                signal_strength = reading.split("=")[1].split(" ")[0]
+                #print "signal_strength:" + reading.split("=")[1].split(" ")[0]
+            if reading.strip()[:4]=="Link":
+                link_quality = int(reading.split("=")[1].split("/")[0]) / int(reading.split("=")[1].split("/")[1]) 
+                print "link_quality:" + link_quality
+            #print reading.strip()    
 
         
         
