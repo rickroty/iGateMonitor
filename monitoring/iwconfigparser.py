@@ -19,6 +19,7 @@ for a in adapters:
     if a[:5] == "wlan0":
         wlan0=a.split("  ")
 
+wlan0=[]
 if wlano.count > 0:
     for reading in wlan0:
         if len(reading.translate(None, ' \n\t\r'))>0:
