@@ -21,5 +21,9 @@ for a in adapters:
 
 for reading in wlan0:
     if len(reading.strip())>0:
-        print "done!"
+        print reading    
+
+        
+        
+print "done!"
 quit
