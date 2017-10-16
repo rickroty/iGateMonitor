@@ -1,1 +1,2 @@
-docker run -v /home/pi/projects/igatemonitor:/host -it monitoring:latest
+
+docker run -v /home/pi/projects/igatemonitor:/host -e HOSTIP -it monitoring:latest
