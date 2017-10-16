@@ -28,7 +28,7 @@ if wlan0.count > 0:
                 #print "signal_strength:" + reading.split("=")[1].split(" ")[0]
             if reading.strip()[:4]=="Link":
                 link_quality = int(reading.split("=")[1].split("/")[0]) / int(reading.split("=")[1].split("/")[1]) 
-                print "link_quality:" + link_quality
+                print "link_quality:" + str(link_quality)
             #print reading.strip()    
 
         
