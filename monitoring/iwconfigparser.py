@@ -1,5 +1,6 @@
 import sys
 import string
+import requests
 
 fname=''
 filecontent=''
