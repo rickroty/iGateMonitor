@@ -16,7 +16,7 @@ with open(fname) as f:
 adapters = filecontent.split("\n\n")
 
 for a in adapters:
-    if a.[:5] == "wlan0":
+    if a[:5] == "wlan0":
         wlan0=a.split("  ")
 
 for reading in wlan0:
