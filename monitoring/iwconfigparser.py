@@ -21,7 +21,7 @@ for a in adapters:
 
 for reading in wlan0:
     if len(reading.translate(None, ' \n\t\r'))>0:
-        print reading    
+        print reading.strip()    
 
         
         
