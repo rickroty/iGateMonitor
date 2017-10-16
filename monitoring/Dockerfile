@@ -39,4 +39,4 @@ RUN pip install --user requests
 
 ### docker run -p 24224:24224 -v /home/pi/projects/igatemonitor:/host monitoring:latest
 
-CMD exec /bash/sh
+CMD exec /bin/bash
