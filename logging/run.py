@@ -1,3 +1,5 @@
+import docker
+
 #docker run -p 24224:24224 -v /home/pi/projects/igatemonitor:/host -it logging:latest
 
 hostip=""
@@ -11,7 +13,7 @@ if hostip == "":
   quit
 
 envvar="HOSTIP=" + hostip
-import docker
+
 client = docker.from_env()
 
 client.containers.run("logging:latest", detach=True, environment=envvar)
