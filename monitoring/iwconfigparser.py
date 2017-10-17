@@ -1,6 +1,7 @@
 import os
 import sys
 import time
+import json
 import string
 import requests
 import datetime
@@ -49,15 +50,13 @@ for a in adapters:
 			print 'time:' + str(timestamp)
 			hostname = os.environ['HOSTIP']
 			uri='http://' + hostname + ':24224/wifi'
-			data='json={'
-			data+='\"APRS_station\": \"KG7TMT-10\",' 
-			data+='"SSID": "ICU2",'
-			data+='\"signal_strength\": '+ str(signal_strength) +','
-			data+='\"link_quality\": '+ str(link_quality) +','
-			data+='\"date\": '+ str(timestamp) + '}'
+			data={"APRS_station": "KG7TMT-10", "SSID": "ICU2", "signal_strength": signal_strength, "link_quality": link_quality, "date": timestamp}
+			
 			print "Writing stats to: " + uri
-			print data
-			r = requests.post(uri, data)
+			parsed = json.loads(data)
+			print json.dumps(parsed, indent=4, sort_keys=True)
+			
+			r = requests.post(uri, json=data)
 			print "response status=" + str(r.status_code)
 	else:
 		"wlan0 not found."
