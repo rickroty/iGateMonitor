@@ -50,6 +50,6 @@ if wlan0.count > 0:
 			try:
 				r = requests.post(uri, json=data)
 				print "response status=" + r.status_code
-
+				
 print "done!"
 quit
