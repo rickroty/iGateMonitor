@@ -38,7 +38,7 @@ if wlan0.count > 0:
 			
             dt = datetime.datetime.now()
 	    hostname=os.environ['HOSTIP']
-		requests.post('http://' + hostname + ':24224', json={ \
+	requests.post('http://' + hostname + ':24224', json={ \
 	            "APRS_station": "KG7TMT-10", \
 	            "SSID": "ICU2", \
 	            "signal_strength": "+ signal_strength +", \
