@@ -35,7 +35,7 @@ for a in adapters:
             			if reading.strip()[:6]=="Signal":
 					signal_strength = reading.split("=")[1].split(" ")[0]
 					logit=True
-					print "signal_strength:" signal_strength
+					print "signal_strength:" + signal_strength
 				if reading.strip()[:4]=="Link":
 					try:  link_quality = int(reading.split("=")[1].split("/")[0])*100 / int(reading.split("=")[1].split("/")[1]) 
  					except ZeroDivisionError: link_quality=0
