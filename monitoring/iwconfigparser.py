@@ -35,7 +35,7 @@ for a in adapters:
 			if len(reading.translate(None, ' \n\t\r'))>0:
 
             			if reading.strip()[:6]=="Signal":
-					signal_strength = reading.split("=")[1].split(" ")[0]
+					signal_strength = int(reading.split("=")[1].split(" ")[0])
 					logit=True
 					print "signal_strength:" + signal_strength
 				if reading.strip()[:4]=="Link":
@@ -56,7 +56,7 @@ for a in adapters:
 			
 			print json.dumps(data, indent=4, sort_keys=True)
 			
-			r = requests.post(uri, json=json.dumps(data))
+			r = requests.post(uri, json=data)
 			print "response status=" + str(r.status_code)
 	else:
 		"wlan0 not found."
