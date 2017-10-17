@@ -20,12 +20,12 @@ with open(fname) as f:
     filecontent = f.read()
 
 adapters = filecontent.split("\n\n")
-
+print "adapter count:" +str(len(adapters))
 for a in adapters:
     if a[:5] == "wlan0":
 	print "wlan0"
         wlan0=a.split("  ")
-
+	print "wlan0 stats count:" +str(len(wlan0))
 	if wlan0.count > 0:
 		logit=False
             	signal_strength=0
