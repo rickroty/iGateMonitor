@@ -35,15 +35,17 @@ for a in adapters:
             			if reading.strip()[:6]=="Signal":
 					signal_strength = reading.split("=")[1].split(" ")[0]
 					logit=True
-					#print "signal_strength:" + reading.split("=")[1].split(" ")[0]
+					print "signal_strength:" signal_strength
 				if reading.strip()[:4]=="Link":
 					try:  link_quality = int(reading.split("=")[1].split("/")[0])*100 / int(reading.split("=")[1].split("/")[1]) 
  					except ZeroDivisionError: link_quality=0
+					print "link_quality:" + str(link_quality)
 					logit=True
 		
 		if logit:		
 			dt = datetime.datetime.now()
-			timestamp = dt.strftime('%Y-%m-%d %H:%M:%S')
+			#timestamp = dt.strftime('%Y-%m-%d %H:%M:%S')
+			timestamp = 0
 			print 'time:' + timestamp
 			hostname = os.environ['HOSTIP']
 			uri='http://' + hostname + ':24224'
