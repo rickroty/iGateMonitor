@@ -37,6 +37,7 @@ if wlan0.count > 0:
  				except ZeroDivisionError: link_quality=0
 			dt = datetime.datetime.now()
 			timestamp = dt.strftime('%Y-%m-%d %H:%M:%S')
+			print timestamp
 			hostname = os.environ['HOSTIP']
 			uri='http://' + hostname + ':24224'
 			data='{ \
