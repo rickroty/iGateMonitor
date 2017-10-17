@@ -45,11 +45,12 @@ if wlan0.count > 0:
                                     "link_quality": '+ str(link_quality) +', \
 	                            "date": '+ dt.strftime("%s") + \
                                     '}'
-			print uri
+			print "Writing stats:" + uri
 			print data
-			try:
-				r = requests.post(uri, json=data)
-				print "response status=" + r.status_code
-				
+			r = requests.post(uri, json=data)
+			print "response status=" + r.status_code
+else:
+	"wlan0 not found."
+
 print "done!"
 quit
