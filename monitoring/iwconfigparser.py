@@ -43,8 +43,8 @@ if wlan0.count > 0:
 	                            "SSID": "ICU2", \
 	                            "signal_strength": '+ signal_strength +', \
                                     "link_quality": '+ str(link_quality) +', \
-	                            "date": '+ dt.strftime("%s") +" \
-                                    }'
+	                            "date": '+ dt.strftime("%s") + \
+                                    '}'
 			print uri
 			print data
 			try:
