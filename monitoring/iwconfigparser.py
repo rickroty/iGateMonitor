@@ -37,15 +37,15 @@ if wlan0.count > 0:
  				except ZeroDivisionError: link_quality=0
 			dt = datetime.datetime.now()
 			timestamp = dt.strftime('%Y-%m-%d %H:%M:%S')
-			print timestamp
+			print 'time:' + timestamp
 			hostname = os.environ['HOSTIP']
 			uri='http://' + hostname + ':24224'
-			data='{ \
-	                            "APRS_station": "KG7TMT-10", \
-	                            "SSID": "ICU2", \
-	                            "signal_strength":'+ signal_strength +', \
-                                    "link_quality": '+ str(link_quality) +', \
-	                            "date": '+ timestamp + '}'
+			data='{'
+			data+='"APRS_station": "KG7TMT-10",' 
+			data+='"SSID": "ICU2",'
+	                data+='"signal_strength": '+ signal_strength +','
+                        data+='"link_quality": '+ str(link_quality) +','
+	                data+='"date": '+ timestamp + '}'
 			print "Writing stats:" + uri
 			print data
 			r = requests.post(uri, json=data)
