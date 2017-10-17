@@ -48,7 +48,7 @@ for a in adapters:
 			timestamp = epoch_time - (7*3600)
 			print 'time:' + str(timestamp)
 			hostname = os.environ['HOSTIP']
-			uri='http://' + hostname + ':24224/WiFi'
+			uri='http://' + hostname + ':24224/wifi'
 			data='json={'
 			data+='\"APRS_station\": \"KG7TMT-10\",' 
 			data+='"SSID": "ICU2",'
