@@ -1,6 +1,8 @@
 FROM resin/rpi-raspbian:latest
 
 RUN apt-get update -y && apt-get install -y \
+              cron \
+              wavemon \
               autoconf \
               bison \
               build-essential \
@@ -35,8 +37,15 @@ RUN chown -R ubuntu:ubuntu /host
 USER ubuntu
 WORKDIR /home/ubuntu
 
+RUN echo "root:Docker!" | chpasswd
+
 RUN pip install --user requests
 
 ### docker run -p 24224:24224 -v /home/pi/projects/igatemonitor:/host monitoring:latest
+## To check if the job is scheduled
+#docker exec -ti <your-container-id> bash -c "crontab -l"
+## To check if the cron service is running
+#docker exec -ti <your-container-id> bash -c "pgrep cron"
 
-CMD exec /bin/bash
+
+CMD /bin/bash
