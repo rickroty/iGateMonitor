@@ -1,3 +1,1 @@
-export HOSTIP=$(python /home/pi/projects/igatemonitor/checkip.py)
-
-docker run -v /home/pi/projects/igatemonitor:/host -e HOSTIP -it monitoring:latest
+docker run -v /home/pi/projects/igatemonitor:/host -e HOSTIP=$(python /home/pi/projects/igatemonitor/checkip.py) -it monitoring:latest
