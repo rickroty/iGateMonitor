@@ -48,7 +48,7 @@ for a in adapters:
 			timestamp = "0"
 			#print 'time:' + timestamp
 			hostname = os.environ['HOSTIP']
-			uri='http://' + hostname + ':24224'
+			uri='http://' + hostname + ':24224/WiFi'
 			data='json={'
 			data+='\"APRS_station\": \"KG7TMT-10\",' 
 			data+='"SSID": "ICU2",'
