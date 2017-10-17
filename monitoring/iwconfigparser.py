@@ -43,7 +43,7 @@ if wlan0.count > 0:
 			data='{'
 			data+='\"APRS_station\": \"KG7TMT-10\",' 
 			data+='"SSID": "ICU2",'
-	                data+='\"signal_strength\": \"'+ signal_strength +'\",'
+	                data+='\"signal_strength\": \"'+ str(signal_strength) +'\",'
                         data+='\"link_quality\": \"'+ str(link_quality) +'\",'
 	                data+='\"date\": \"'+ timestamp + '\"}'
 			print "Writing stats:" + uri
