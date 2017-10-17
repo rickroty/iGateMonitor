@@ -46,7 +46,7 @@ for a in adapters:
 			dt = datetime.datetime.now()
 			#timestamp = dt.strftime('%Y-%m-%d %H:%M:%S')
 			timestamp = 0
-			print 'time:' + timestamp
+			#print 'time:' + timestamp
 			hostname = os.environ['HOSTIP']
 			uri='http://' + hostname + ':24224'
 			data='{'
