@@ -45,7 +45,7 @@ for a in adapters:
 		if logit:		
 			dt = datetime.datetime.now()
 			#timestamp = dt.strftime('%Y-%m-%d %H:%M:%S')
-			timestamp = 0
+			timestamp = "0"
 			#print 'time:' + timestamp
 			hostname = os.environ['HOSTIP']
 			uri='http://' + hostname + ':24224'
