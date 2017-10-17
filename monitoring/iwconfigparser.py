@@ -49,7 +49,7 @@ for a in adapters:
 			#print 'time:' + timestamp
 			hostname = os.environ['HOSTIP']
 			uri='http://' + hostname + ':24224'
-			data='{'
+			data='json={'
 			data+='\"APRS_station\": \"KG7TMT-10\",' 
 			data+='"SSID": "ICU2",'
 			data+='\"signal_strength\": \"'+ str(signal_strength) +'\",'
@@ -57,7 +57,7 @@ for a in adapters:
 			data+='\"date\": \"'+ timestamp + '\"}'
 			print "Writing stats to: " + uri
 			print data
-			r = requests.post(uri, json=data)
+			r = requests.post(uri, data)
 			print "response status=" + str(r.status_code)
 	else:
 		"wlan0 not found."
