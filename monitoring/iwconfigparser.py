@@ -38,15 +38,15 @@ if wlan0.count > 0:
 			dt = datetime.datetime.now()
 			hostname=os.environ['HOSTIP']
 			uri='http://' + hostname + ':24224'
-			data=
-			print uri
-			print data='{ \
+			data=='{ \
 	                            "APRS_station": "KG7TMT-10", \
 	                            "SSID": "ICU2", \
 	                            "signal_strength": '+ signal_strength +', \
                                     "link_quality": '+ str(link_quality) +', \
 	                            "date": '+ dt.strftime("%s") +" \
                                     }'
+			print uri
+			print data
 			try:
 				r = requests.post(uri, json=data)
 				print "response status=" + r.status_code
