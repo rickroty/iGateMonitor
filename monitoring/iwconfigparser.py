@@ -38,7 +38,7 @@ if wlan0.count > 0:
 			dt = datetime.datetime.now()
 			hostname=os.environ['HOSTIP']
 			uri='http://' + hostname + ':24224'
-			data=='{ \
+			data='{ \
 	                            "APRS_station": "KG7TMT-10", \
 	                            "SSID": "ICU2", \
 	                            "signal_strength": '+ signal_strength +', \
