@@ -36,14 +36,15 @@ if wlan0.count > 0:
 				try:  link_quality = int(reading.split("=")[1].split("/")[0])*100 / int(reading.split("=")[1].split("/")[1]) 
  				except ZeroDivisionError: link_quality=0
 			dt = datetime.datetime.now()
-			hostname=os.environ['HOSTIP']
+			timestamp = dt.strftime("%s")
+			hostname = os.environ['HOSTIP']
 			uri='http://' + hostname + ':24224'
 			data='{ \
 	                            "APRS_station": "KG7TMT-10", \
 	                            "SSID": "ICU2", \
-	                            "signal_strength": '+ signal_strength +', \
+	                            "signal_strength":'+ signal_strength +', \
                                     "link_quality": '+ str(link_quality) +', \
-	                            "date": '+ str(dt.strftime("%s")) + \
+	                            "date": '+ timestamp + \
                                     '}'
 			print "Writing stats:" + uri
 			print data
