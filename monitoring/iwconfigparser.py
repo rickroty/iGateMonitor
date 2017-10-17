@@ -53,10 +53,10 @@ for a in adapters:
 			data={"APRS_station": "KG7TMT-10", "SSID": "ICU2", "signal_strength": signal_strength, "link_quality": link_quality, "date": timestamp}
 			
 			print "Writing stats to: " + uri
-			parsed = json.loads(data)
-			print json.dumps(parsed, indent=4, sort_keys=True)
 			
-			r = requests.post(uri, json=data)
+			print json.dumps(data, indent=4, sort_keys=True)
+			
+			r = requests.post(uri, json=json.dumps(data))
 			print "response status=" + str(r.status_code)
 	else:
 		"wlan0 not found."
