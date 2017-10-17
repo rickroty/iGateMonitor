@@ -45,8 +45,7 @@ if wlan0.count > 0:
 	                            "SSID": "ICU2", \
 	                            "signal_strength":'+ signal_strength +', \
                                     "link_quality": '+ str(link_quality) +', \
-	                            "date": '+ timestamp + \
-                                    '}'
+	                            "date": '+ timestamp + '}'
 			print "Writing stats:" + uri
 			print data
 			r = requests.post(uri, json=data)
