@@ -22,7 +22,7 @@ with open(fname) as f:
 adapters = filecontent.split("\n\n")
 print "adapter count:" +str(len(adapters))
 for a in adapters:
-    if a[:5] == "wlan0":
+    if (a).find("wlan0")>=0:
 	print "wlan0"
         wlan0=a.split("  ")
 	print "wlan0 stats count:" +str(len(wlan0))
