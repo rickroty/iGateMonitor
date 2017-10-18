@@ -46,7 +46,7 @@ for a in adapters:
 		
 		if logit:		
 			epoch_time = int(time.time())
-			timestamp = epoch_time - (7*3600)
+			timestamp = epoch_time
 			print 'time:' + str(timestamp)
 			hostname = os.environ['HOSTIP']
 			uri='http://' + hostname + ':24224/wifi'
