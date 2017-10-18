@@ -2,7 +2,7 @@ FROM resin/rpi-raspbian:latest
 
 RUN apt-get update -y && apt-get install -y \
               cron \
-              wavemon \
+              wireless-tools \
               autoconf \
               bison \
               build-essential \
