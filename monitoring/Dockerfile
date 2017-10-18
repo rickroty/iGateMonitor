@@ -21,6 +21,9 @@ RUN apt-get update -y && apt-get install -y \
               python-setuptools \
         && rm -rf /var/lib/apt/lists/*
 
+COPY hello-cron /etc/cron.d/hello-cron
+RUN crontab /etc/cron.d/hello-cron
+
 RUN useradd ubuntu -d /home/ubuntu -m -U
 RUN chown -R ubuntu:ubuntu /home/ubuntu
 
