@@ -40,8 +40,6 @@ RUN chown -R ubuntu:ubuntu /host
 USER ubuntu
 WORKDIR /home/ubuntu
 
-RUN echo "root:Docker!" | chpasswd
-
 RUN pip install --user requests
 
 ### docker run -p 24224:24224 -v /home/pi/projects/igatemonitor:/host monitoring:latest
