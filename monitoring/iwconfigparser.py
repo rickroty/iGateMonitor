@@ -45,9 +45,7 @@ for a in adapters:
 					logit=True
 		
 		if logit:		
-			epoch_time = int(time.time())
-			timestamp = epoch_time
-			print 'time:' + str(timestamp)
+			timestamp = int(time.time())
 			hostname = os.environ['HOSTIP']
 			uri='http://' + hostname + ':24224/wifi'
 			data={"APRS_station": "KG7TMT-10", "SSID": "ICU2", "signal_strength": signal_strength, "link_quality": link_quality, "date": timestamp}
