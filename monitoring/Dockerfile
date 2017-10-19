@@ -39,7 +39,7 @@ RUN chown -R ubuntu:ubuntu /home/ubuntu/monitoring
 COPY * /home/ubuntu/monitoring/
 RUN chmod -R 0755 /home/ubuntu/monitoring/monitor.sh
 
-RUN crontab /etc/cron.d/cron
+RUN crontab -u ubuntu /etc/cron.d/cron
 
 # for log storage (maybe shared with host)
 #RUN mkdir -p /fluentd/log
