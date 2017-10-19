@@ -27,6 +27,7 @@ RUN chown -R ubuntu:ubuntu /home/ubuntu
 COPY cron /etc/cron.d/cron
 RUN chown -R ubuntu:ubuntu /var/run/
 RUN chown -R ubuntu:ubuntu /var/log/
+RUN chown -R ubuntu:ubuntu /var/spool/cron/crontabs 
 RUN chmod 4755 /usr/bin/crontab
 
 RUN mkdir /home/ubuntu/monitoring
