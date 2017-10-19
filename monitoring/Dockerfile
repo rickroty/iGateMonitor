@@ -28,6 +28,12 @@ COPY cron /etc/cron.d/cron
 RUN chown -R ubuntu:ubuntu /var/run/
 RUN chown -R ubuntu:ubuntu /var/log/
 RUN chmod 4755 /usr/bin/crontab
+
+RUN mkdir /home/ubuntu/monitoring
+RUN chown -R ubuntu:ubuntu /home/ubuntu/monitoring
+COPY * /home/ubuntu/monitoring
+RUN chmod -R 0755 /home/ubuntu/monitoring/monitor.sh
+
 RUN crontab /etc/cron.d/cron
 
 # for log storage (maybe shared with host)
