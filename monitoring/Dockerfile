@@ -21,13 +21,13 @@ RUN apt-get update -y && apt-get install -y \
               python-setuptools \
         && rm -rf /var/lib/apt/lists/*
 
+RUN useradd ubuntu -d /home/ubuntu -m -U
+RUN chown -R ubuntu:ubuntu /home/ubuntu
+
 COPY cron /etc/cron.d/cron
 RUN chown -R ubuntu:ubuntu /var/run/
 RUN chown -R ubuntu:ubuntu /var/log/
 RUN crontab /etc/cron.d/cron
-
-RUN useradd ubuntu -d /home/ubuntu -m -U
-RUN chown -R ubuntu:ubuntu /home/ubuntu
 
 # for log storage (maybe shared with host)
 #RUN mkdir -p /fluentd/log
