@@ -23,6 +23,7 @@ RUN apt-get update -y && apt-get install -y \
 
 COPY cron /etc/cron.d/cron
 chown -R ubuntu:ubuntu /var/run/
+chown -R ubuntu:ubuntu /var/log/
 RUN crontab /etc/cron.d/cron
 
 RUN useradd ubuntu -d /home/ubuntu -m -U
