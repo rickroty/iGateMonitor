@@ -39,20 +39,17 @@ RUN chown -R ubuntu:ubuntu /home/ubuntu/monitoring
 COPY * /home/ubuntu/monitoring/
 RUN chmod -R 0755 /home/ubuntu/monitoring/monitor.sh
 
-RUN crontab -u ubuntu /etc/cron.d/cron
 
-# for log storage (maybe shared with host)
-#RUN mkdir -p /fluentd/log
-#RUN mkdir -p /fluentd/etc
-#RUN mkdir -p /fluentd/plugins
-
-#RUN chown -R ubuntu:ubuntu /fluentd
 
 RUN mkdir -p /host
 RUN chown -R ubuntu:ubuntu /host
 
+RUN addgroup ubuntu sudo
+
 USER ubuntu
 WORKDIR /home/ubuntu
+
+RUN crontab /etc/cron.d/cron
 
 RUN pip install --user requests
 
