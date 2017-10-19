@@ -2,6 +2,7 @@ FROM resin/rpi-raspbian:latest
 
 RUN apt-get update -y && apt-get install -y \
               cron \
+              nano \
               wireless-tools \
               autoconf \
               bison \
@@ -21,6 +22,7 @@ RUN apt-get update -y && apt-get install -y \
               python-setuptools \
         && rm -rf /var/lib/apt/lists/*
 
+ENV $EDITOR nano
 RUN useradd ubuntu -d /home/ubuntu -m -U
 RUN chown -R ubuntu:ubuntu /home/ubuntu
 
