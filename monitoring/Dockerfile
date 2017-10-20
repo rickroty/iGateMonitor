@@ -23,7 +23,7 @@ RUN apt-get update -y && apt-get install -y \
               --no-install-recommends \
         && rm -rf /var/lib/apt/lists/*
 
-ENV $EDITOR nano
+ENV $EDITOR=nano
 
 # Import crontab file
 ADD ./crontab /etc/crontab
