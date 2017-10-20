@@ -25,7 +25,7 @@ RUN apt-get update -y && apt-get install -y \
         && rm -rf /var/lib/apt/lists/*
 
 ENV EDITOR nano
-ADD ./logentries.conf /etc/rsyslog.d/logentries.conf
+ADD ./rsyslog.conf /etc/rsyslog.d/rsyslog.conf
 
 # Import crontab file
 ADD ./crontab /etc/crontab
@@ -37,6 +37,8 @@ RUN chown -R ubuntu:ubuntu /home/ubuntu
 
 RUN mkdir /home/ubuntu/monitoring
 RUN chown -R ubuntu:ubuntu /home/ubuntu/monitoring
+RUN chown -R ubuntu:ubuntu /var/run/
+
 COPY * /home/ubuntu/monitoring/
 RUN chmod -R 0755 /home/ubuntu/monitoring/monitor.sh
 
