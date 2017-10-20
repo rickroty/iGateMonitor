@@ -20,25 +20,23 @@ RUN apt-get update -y && apt-get install -y \
               zlib1g-dev \ 
               python-pip \
               python-setuptools \
+              --no-install-recommends \
         && rm -rf /var/lib/apt/lists/*
 
 ENV $EDITOR nano
+
+# Import crontab file
+ADD ./crontab /etc/crontab
+RUN touch /var/log/cron.log
+
 RUN useradd ubuntu -d /home/ubuntu -m -U
 RUN chown -R ubuntu:ubuntu /home/ubuntu
 
-COPY cron /etc/cron.d/cron
-RUN chown -R ubuntu:ubuntu /var/run/
-RUN chown -R ubuntu:ubuntu /var/log/
-RUN chown -R ubuntu:ubuntu /var/spool/cron/
-RUN chown -R ubuntu:ubuntu /var/spool/cron/crontabs/
-
-RUN chmod 4755 /usr/bin/crontab
 
 RUN mkdir /home/ubuntu/monitoring
 RUN chown -R ubuntu:ubuntu /home/ubuntu/monitoring
 COPY * /home/ubuntu/monitoring/
 RUN chmod -R 0755 /home/ubuntu/monitoring/monitor.sh
-
 
 
 RUN mkdir -p /host
@@ -49,7 +47,6 @@ RUN addgroup ubuntu sudo
 USER ubuntu
 WORKDIR /home/ubuntu
 
-RUN crontab /etc/cron.d/cron
 
 RUN pip install --user requests
 
@@ -59,5 +56,5 @@ RUN pip install --user requests
 ## To check if the cron service is running
 #docker exec -ti <your-container-id> bash -c "pgrep cron"
 
-
-CMD /bin/bash
+# Define default command
+CMD rsyslogd && cron && tail -f /var/log/syslog /var/log/cron.log
