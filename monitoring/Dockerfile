@@ -20,10 +20,12 @@ RUN apt-get update -y && apt-get install -y \
               zlib1g-dev \ 
               python-pip \
               python-setuptools \
+              rsyslog \
               --no-install-recommends \
         && rm -rf /var/lib/apt/lists/*
 
 ENV EDITOR nano
+ADD ./logentries.conf /etc/rsyslog.d/logentries.conf
 
 # Import crontab file
 ADD ./crontab /etc/crontab
