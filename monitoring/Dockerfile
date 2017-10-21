@@ -35,12 +35,12 @@ RUN useradd ubuntu -d /home/ubuntu -m -U
 RUN chown -R ubuntu:ubuntu /home/ubuntu
 
 
-RUN mkdir /home/ubuntu/monitoring
-RUN chown -R ubuntu:ubuntu /home/ubuntu/monitoring
+RUN mkdir /home/ubuntu
+RUN chown -R ubuntu:ubuntu /home/ubuntu/
 RUN chown -R ubuntu:ubuntu /var/run/
 
 COPY * /home/ubuntu/
-RUN chmod -R 0755 /home/ubuntu/monitoring/monitor.sh
+RUN chmod -R 0755 /home/ubuntu/monitor.sh
 
 
 RUN mkdir -p /host
