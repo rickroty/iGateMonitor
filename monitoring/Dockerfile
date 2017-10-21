@@ -34,8 +34,6 @@ RUN touch /var/log/cron.log
 RUN useradd ubuntu -d /home/ubuntu -m -U
 RUN chown -R ubuntu:ubuntu /home/ubuntu
 
-
-RUN mkdir /home/ubuntu
 RUN chown -R ubuntu:ubuntu /home/ubuntu/
 RUN chown -R ubuntu:ubuntu /var/run/
 
