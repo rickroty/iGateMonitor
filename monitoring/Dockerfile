@@ -39,7 +39,7 @@ RUN mkdir /home/ubuntu/monitoring
 RUN chown -R ubuntu:ubuntu /home/ubuntu/monitoring
 RUN chown -R ubuntu:ubuntu /var/run/
 
-COPY * /home/ubuntu/monitoring/
+COPY * /home/ubuntu/
 RUN chmod -R 0755 /home/ubuntu/monitoring/monitor.sh
 
 
