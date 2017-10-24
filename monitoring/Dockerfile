@@ -47,5 +47,5 @@ WORKDIR /home/ubuntu
 RUN pip install --user requests
 
 # Define default command
-CMD (/bin/sh cd /host/monitoring/ && /bin/sh monitor.sh)
+CMD /bin/sh monitor.sh
 
