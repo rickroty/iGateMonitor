@@ -1,7 +1,6 @@
 FROM resin/rpi-raspbian:latest
 
 RUN apt-get update -y && apt-get install -y \
-              cron \
               nano \
               wireless-tools \
               autoconf \
@@ -25,11 +24,6 @@ RUN apt-get update -y && apt-get install -y \
         && rm -rf /var/lib/apt/lists/*
 
 ENV EDITOR nano
-ADD ./rsyslog.conf /etc/rsyslog.d/rsyslog.conf
-
-# Import crontab file
-ADD ./crontab /etc/crontab
-RUN touch /var/log/cron.log
 
 RUN useradd ubuntu -d /home/ubuntu -m -U
 RUN chown -R ubuntu:ubuntu /home/ubuntu
@@ -52,11 +46,6 @@ WORKDIR /home/ubuntu
 
 RUN pip install --user requests
 
-### docker run -p 24224:24224 -v /home/pi/projects/igatemonitor:/host monitoring:latest
-## To check if the job is scheduled
-#docker exec -ti <your-container-id> bash -c "crontab -l"
-## To check if the cron service is running
-#docker exec -ti <your-container-id> bash -c "pgrep cron"
-
 # Define default command
-CMD rsyslogd && cron && tail -f /var/log/syslog /var/log/cron.log
+CMD (/bin/sh cd /host/monitoring/ && /bin/sh monitor.sh)
+
