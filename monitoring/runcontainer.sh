@@ -1,1 +1,2 @@
-sudo rm /home/pi/projects/igatemonitor/monitoring/iwconfig.txt && iwconfig > /home/pi/projects/igatemonitor/monitoring/iwconfig.txt && docker run -v /home/pi/projects/igatemonitor:/host -e HOSTIP=$(python /home/pi/projects/igatemonitor/checkip.py) -it  monitoring:latest sh /host/monitoring/monitor.sh
+#!/bin/bash
+cd /home/pi/projects/igatemonitor/monitoring/ && sudo rm iwconfig.txt && iwconfig > iwconfig.txt && docker run -v /home/pi/projects/igatemonitor:/host -e HOSTIP=$(python checkip.py) -it  monitoring:latest sh /host/monitoring/monitor.sh
