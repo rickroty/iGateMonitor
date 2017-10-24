@@ -1,4 +1,4 @@
 #!/bin/bash
 cd /home/ubuntu/
-sbin/iwconfig > iwconfig.txt
+rm iwconfig.txt && sbin/iwconfig > iwconfig.txt
 python iwconfigparser.py iwconfig.txt
