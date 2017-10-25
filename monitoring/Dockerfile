@@ -33,7 +33,9 @@ RUN chown -R ubuntu:ubuntu /var/run/
 
 COPY * /home/ubuntu/
 RUN chmod -R 0755 /home/ubuntu/monitor.sh
-
+RUN rm -y /home/ubuntu/iwconfig.txt
+RUN touch /home/ubuntu/iwconfig.txt
+RUN chown -R ubuntu:ubuntu /home/ubuntu/iwconfig.txt
 
 RUN mkdir -p /host
 RUN chown -R ubuntu:ubuntu /host
@@ -42,7 +44,6 @@ RUN addgroup ubuntu sudo
 
 USER ubuntu
 WORKDIR /home/ubuntu
-
 
 RUN pip install --user requests
 
