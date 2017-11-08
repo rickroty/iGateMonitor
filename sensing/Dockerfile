@@ -7,6 +7,7 @@ RUN apt-get update && apt-get install -y \
     gcc \
     python \
     python-dev \
+    python-smbus \
     python-pip \
     python-virtualenv \
     --no-install-recommends && \
@@ -16,6 +17,11 @@ RUN pip install pyserial
 RUN git clone git://git.drogon.net/wiringPi
 RUN cd wiringPi && ./build
 RUN pip install wiringpi2
+
+RUN cd ~
+RUN git clone https://github.com/adafruit/Adafruit_Python_ADS1x15.git
+RUN cd Adafruit_Python_ADS1x15
+RUN python setup.py install
 
 # Define working directory
 WORKDIR /data
