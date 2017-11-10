@@ -22,6 +22,8 @@ RUN cd ~
 RUN git clone https://github.com/adafruit/Adafruit_Python_ADS1x15.git
 RUN cd Adafruit_Python_ADS1x15 && python setup.py install && pip install adafruit-ads1x15
 
+COPY * /
+
 # Define working directory
 WORKDIR /data
 VOLUME /data
