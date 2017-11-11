@@ -3,6 +3,7 @@ FROM resin/rpi-raspbian:latest
 RUN apt-get update -y && apt-get upgrade -y && apt-get install -y \
               gcc \
               nano \
+              sudo \
               wireless-tools \
               i2c-tools \
               autoconf \
@@ -38,7 +39,7 @@ RUN cd ~
 RUN git clone https://github.com/adafruit/Adafruit_Python_ADS1x15.git
 RUN cd Adafruit_Python_ADS1x15 && python setup.py install && pip install adafruit-ads1x15
 
-RUN useradd ubuntu -d /home/ubuntu -m -U
+RUN useradd ubuntu -d /home/ubuntu -m -U && echo "ubuntu:ubuntu" | chpasswd && adduser ubuntu sudo
 RUN chown -R ubuntu:ubuntu /home/ubuntu
 
 RUN chown -R ubuntu:ubuntu /home/ubuntu/
