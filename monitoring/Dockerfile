@@ -17,6 +17,7 @@ RUN apt-get update -y && apt-get install -y \
               libssl-dev \
               libyaml-dev \
               zlib1g-dev \ 
+              python-dev \
               python-pip \
               python-setuptools \
               --no-install-recommends \
