@@ -47,6 +47,7 @@ WORKDIR /home/ubuntu
 RUN pip install --user requests
 
 RUN git clone https://github.com/adafruit/Adafruit_Python_ADS1x15.git
+RUN chown -R ubuntu:ubuntu /Adafruit_Python_ADS1x15
 RUN cd Adafruit_Python_ADS1x15 && python setup.py install && pip install adafruit-ads1x15
 
 # Define default command
