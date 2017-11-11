@@ -3,6 +3,7 @@ FROM resin/rpi-raspbian:latest
 RUN apt-get update -y && apt-get install -y \
               nano \
               wireless-tools \
+              i2c-tools \
               autoconf \
               bison \
               build-essential \
@@ -17,6 +18,7 @@ RUN apt-get update -y && apt-get install -y \
               libssl-dev \
               libyaml-dev \
               zlib1g-dev \ 
+              python-smbus \
               python-dev \
               python-pip \
               python-setuptools \
