@@ -1,6 +1,7 @@
 FROM resin/rpi-raspbian:latest
 
 RUN apt-get update -y && apt-get upgrade -y && apt-get install -y \
+              gcc \
               nano \
               wireless-tools \
               i2c-tools \
@@ -21,12 +22,19 @@ RUN apt-get update -y && apt-get upgrade -y && apt-get install -y \
               python-smbus \
               python-dev \
               python-pip \
+              python-virtualenv \
               python-setuptools \
               --no-install-recommends \
         && rm -rf /var/lib/apt/lists/*
 
 ENV EDITOR nano
 
+RUN pip install pyserial
+RUN git clone git://git.drogon.net/wiringPi
+RUN cd wiringPi && ./build
+RUN pip install wiringpi2
+
+RUN cd ~
 RUN git clone https://github.com/adafruit/Adafruit_Python_ADS1x15.git
 RUN cd Adafruit_Python_ADS1x15 && python setup.py install && pip install adafruit-ads1x15
 
