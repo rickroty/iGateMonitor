@@ -46,6 +46,7 @@ RUN chown -R ubuntu:ubuntu /home/ubuntu/
 RUN chown -R ubuntu:ubuntu /var/run/
 
 RUN usermod -G i2c ubuntu
+RUN chmod a+rw /dev/i2c-1
 
 COPY * /home/ubuntu/
 RUN chmod -R 0755 /home/ubuntu/monitor.sh
