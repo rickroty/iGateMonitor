@@ -42,8 +42,8 @@ avgvalue = sum(values)/5
 panel_voltage = (avgvalue/2048)*18.30
 
 timestamp = int(time.time())
-hostname = os.environ['HOSTIP']
-uri='http://' + hostname + ':24224/power'
+hostname = os.environ["HOSTIP"]
+uri="http://" + hostname + ":24224/power"
 data={"APRS_station": "KG7TMT-10", "battery_voltage": battery_voltage, "panel_voltage": panel_voltage, "date": timestamp}
 			
 print "Writing stats to: " + uri
