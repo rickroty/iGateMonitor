@@ -35,6 +35,9 @@ RUN git clone git://git.drogon.net/wiringPi
 RUN cd wiringPi && ./build
 RUN pip install wiringpi2
 
+RUN echo "i2c-bcm2708" >> /etc/modules
+RUN echo "i2c-dev" >> /etc/modules
+
 RUN cd ~
 RUN git clone https://github.com/adafruit/Adafruit_Python_ADS1x15.git
 RUN cd Adafruit_Python_ADS1x15 && python setup.py install && pip install adafruit-ads1x15
