@@ -53,5 +53,7 @@ WORKDIR /home/ubuntu
 RUN pip install --user requests
 
 # Define default command
-CMD /bin/sh monitor.sh
+
+CMD modprobe i2c-dev && python readvoltages.py
+#CMD /bin/sh monitor.sh
 
