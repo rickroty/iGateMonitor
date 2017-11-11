@@ -1,6 +1,6 @@
 FROM resin/rpi-raspbian:latest
 
-RUN apt-get update -y && apt-get install -y \
+RUN apt-get update -y && apt-get upgrade -y && apt-get install -y \
               nano \
               wireless-tools \
               i2c-tools \
