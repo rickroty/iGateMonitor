@@ -19,7 +19,6 @@ RUN apt-get update -y && apt-get install -y \
               zlib1g-dev \ 
               python-pip \
               python-setuptools \
-              rsyslog \
               --no-install-recommends \
         && rm -rf /var/lib/apt/lists/*
 
