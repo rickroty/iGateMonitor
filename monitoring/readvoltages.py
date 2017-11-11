@@ -30,7 +30,7 @@ for i in range(5):
     values[i] = adc.read_adc(2, gain=GAIN)
     time.sleep(0.2)
 avgvalue = sum(l)/5
-battery_temp = (avgvalue/2048)*18.30
+battery_voltage = (avgvalue/2048)*18.30
 
 # Read  channel 3 (Panel) values into a list.
 values = [0]*5
@@ -39,4 +39,16 @@ for i in range(5):
     values[i] = adc.read_adc(3, gain=GAIN)
     time.sleep(0.2)
 avgvalue = sum(l)/5
-panel_temp = (avgvalue/2048)*18.30
+panel_voltage = (avgvalue/2048)*18.30
+
+timestamp = int(time.time())
+hostname = os.environ['HOSTIP']
+uri='http://' + hostname + ':24224/power'
+data={"APRS_station": "KG7TMT-10", "battery_voltage": battery_voltage, "panel_voltage": panel_voltage, "date": timestamp}
+			
+print "Writing stats to: " + uri
+			
+print json.dumps(data, indent=4, sort_keys=True)
+			
+r = requests.post(uri, json=data)
+print "response status=" + str(r.status_code)
