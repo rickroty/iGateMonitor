@@ -44,6 +44,8 @@ RUN chown -R ubuntu:ubuntu /home/ubuntu
 RUN chown -R ubuntu:ubuntu /home/ubuntu/
 RUN chown -R ubuntu:ubuntu /var/run/
 
+RUN usermod -G i2c ubuntu
+
 COPY * /home/ubuntu/
 RUN chmod -R 0755 /home/ubuntu/monitor.sh
 RUN rm -f /home/ubuntu/iwconfig.txt
