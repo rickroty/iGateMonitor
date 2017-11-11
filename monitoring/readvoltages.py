@@ -26,18 +26,22 @@ GAIN = 1
 # Read  channel 2 (Battery) values into a list.
 values = [0]*5
 for i in range(5):
-    # Read the specified ADC channel using the previously set gain value.
-    values[i] = adc.read_adc(2, gain=GAIN)
-    time.sleep(0.2)
+	# Read the specified ADC channel using the previously set gain value.
+	value = adc.read_adc(2, gain=GAIN)
+	print value
+	values[i] = value
+	time.sleep(0.2)
 avgvalue = sum(values)/5
 battery_voltage = (avgvalue/2048)*18.30
 
 # Read  channel 3 (Panel) values into a list.
 values = [0]*5
 for i in range(5):
-    # Read the specified ADC channel using the previously set gain value.
-    values[i] = adc.read_adc(3, gain=GAIN)
-    time.sleep(0.2)
+	# Read the specified ADC channel using the previously set gain value.
+	value = adc.read_adc(3, gain=GAIN)
+	print value
+	values[i] = value
+	time.sleep(0.2)
 avgvalue = sum(values)/5
 panel_voltage = (avgvalue/2048)*18.30
 
