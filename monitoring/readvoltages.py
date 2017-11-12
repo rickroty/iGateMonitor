@@ -33,7 +33,7 @@ for i in range(5):
 	time.sleep(0.2)
 avgvalue = sum(values)/5.00
 #print avgvalue
-battery_voltage = (avgvalue/2048.00)*18.26
+battery_voltage = round((avgvalue/2048.00)*18.26,2)
 
 # Read  channel 3 (Panel) values into a list.
 values = [0]*5
@@ -45,7 +45,7 @@ for i in range(5):
 	time.sleep(0.2)
 avgvalue = sum(values)/5.00
 #print avgvalue
-panel_voltage = (avgvalue/2048.00)*18.26
+panel_voltage = round((avgvalue/2048.00)*18.26,2)
 
 timestamp = int(time.time())
 hostname = os.environ["HOSTIP"]
