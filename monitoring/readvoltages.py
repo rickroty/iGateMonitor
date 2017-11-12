@@ -10,6 +10,8 @@ import Adafruit_ADS1x15
 
 adc = Adafruit_ADS1x15.ADS1015()
 
+VFACTOR = 18.25
+
 # possible alternate bus
 #adc = Adafruit_ADS1x15.ADS1015(address=0x49, busnum=1)
 
@@ -33,7 +35,7 @@ for i in range(5):
 	time.sleep(0.2)
 avgvalue = sum(values)/5.00
 #print avgvalue
-battery_voltage = round((avgvalue/2048.00)*18.26,2)
+battery_voltage = round((avgvalue/2048.00)*VFACTOR,2)
 
 # Read  channel 3 (Panel) values into a list.
 values = [0]*5
@@ -45,7 +47,7 @@ for i in range(5):
 	time.sleep(0.2)
 avgvalue = sum(values)/5.00
 #print avgvalue
-panel_voltage = round((avgvalue/2048.00)*18.26,2)
+panel_voltage = round((avgvalue/2048.00)*VFACTOR,2)
 
 timestamp = int(time.time())
 hostname = os.environ["HOSTIP"]
