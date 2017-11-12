@@ -52,7 +52,7 @@ panel_voltage = round((avgvalue/2048.00)*VFACTOR,2)
 timestamp = int(time.time())
 hostname = os.environ["HOSTIP"]
 uri="http://" + hostname + ":24224/power"
-data={"APRS_station": "KG7TMT-10", "battery_volts": battery_voltage, "panel_volts": panel_voltage, "date": timestamp}
+data={"APRS_station": "KG7TMT-10", "battery_volts": battery_voltage, "solarpanel_volts": panel_voltage, "date": timestamp}
 			
 print "Writing stats to: " + uri
 			
