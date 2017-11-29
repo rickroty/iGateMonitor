@@ -9,9 +9,11 @@ import json
 #os.system('modprobe w1-gpio')                                                                                    
 #os.system('modprobe w1-therm')                                                                                   
                                                                                                                   
-temp_sensor_inside = '/sys/bus/w1/devices/28-03146d1044ff/w1_slave'                                               
+temp_sensor_inside = ['28-03146d1044ff','28-0115527003ff']                                               
                                                                                                                   
-temp_sensor_outside = '/sys/bus/w1/devices/28-0215155c4aff/w1_slave'                                              
+temp_sensor_outside = ['28-0215155c4aff','28-0215525b5bff']    
+
+w1path = '/sys/bus/w1/devices/{0}/w1_slave'
                                                                                                                   
 # read row data                                                                                                   
                                                                                                                   
@@ -44,9 +46,15 @@ def read_temp(temp_sensor):
                                                                                                                   
                                                                                                                   
                                                                                                                   
-inside_temp = read_temp(temp_sensor_inside)                                                                       
+try:
+  inside_temp = read_temp(w1path.format(temp_sensor_inside[0]))  
+except:
+  inside_temp = read_temp(w1path.format(temp_sensor_inside[1])) 
                                                                                                                   
-outside_temp = read_temp(temp_sensor_outside)                                                                     
+try:
+  outside_temp = read_temp(w1path.format(temp_sensor_outside[0]))  
+except:
+  outside_temp = read_temp(w1path.format(temp_sensor_outside[1])) 
                                                                                                                   
 timestamp = int(time.time())                                                                                      
 hostname = os.environ['HOSTIP']                                                                                   
